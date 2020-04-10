@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
+import classnames from 'classnames';
 
 
 class Contact extends Component {
@@ -29,23 +30,26 @@ class Contact extends Component {
                             <h4>
                                 <span onClick={this.onExpand} style={{ cursor: 'pointer' }}>
                                     {name}
-                                    <i className="material-icons">arrow_drop_down</i>
+                                    <i className={classnames("material-icons closed", { 'turn': this.state.showContactInfo })}>arrow_drop_down</i>
                                 </span>
                                 <i className="material-icons mt-1" style={{ float: 'right', cursor: 'pointer', color: '#db0011' }}
                                     onClick={this.onDelete.bind(this, id, dispatch)}>
                                     cancel
                                 </i>
                             </h4>
-                            {showContactInfo ? (
-                                <ul className="list-group">
-                                    <li className="list-group-item">Email: {email}</li>
-                                    <li className="list-group-item">Phone: {phone}</li>
-                                </ul>) : null}
+                            {
+                                showContactInfo ? (
+                                    <ul className="list-group">
+                                        <li className="list-group-item">Email: {email}</li>
+                                        <li className="list-group-item">Phone: {phone}</li>
+                                    </ul>) : null
+                            }
 
                         </div>
                     )
-                }}
-            </Consumer>
+                }
+                }
+            </Consumer >
         )
     }
 }

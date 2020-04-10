@@ -1,0 +1,22 @@
+.nav-link {
+    display: inline-flex;
+}
+.nav-link i {
+    vertical-align: middle;
+    padding-right: 5px;
+}
+.closed {
+    transform: rotate(-90deg);
+}
+.turn {
+    transform: rotate(0deg);
+    animation: 0.3s ease-in-out turn;
+}
+@keyframes turn {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
