@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
 import TextInputGroup from '../layouts/TextInputGroup';
-import { v4 as uuid } from 'uuid';
+//import { v4 as uuid } from 'uuid';
+import axios from 'axios';
 
 class AddContact extends Component {
     state = {
@@ -18,11 +19,11 @@ class AddContact extends Component {
 
 
         const newContact = {
-            id: uuid(),
             name,
             email,
             phone
         };
+
         // check for submission errors
         if (name === '') {
             this.setState({ errors: { name: 'Name is required' } })
@@ -37,7 +38,8 @@ class AddContact extends Component {
             return;
         }
 
-        dispatch({ type: 'ADD_CONTACT', payload: newContact });
+        axios.post('https://jsonplaceholder.typicode.com/users', newContact)
+            .then(res => dispatch({ type: 'ADD_CONTACT', payload: res.data }));
 
         // clear form after submission
         this.setState({
