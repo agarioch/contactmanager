@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
 import classnames from 'classnames';
@@ -39,6 +40,16 @@ class Contact extends Component {
                                     onClick={this.onDelete.bind(this, id, dispatch)}>
                                     cancel
                                 </i>
+                                <Link to={`contact/edit/${id}`}>
+                                    <i
+                                        className="material-icons"
+                                        style={{
+                                            cursor: 'pointer',
+                                            float: 'right',
+                                            color: '#666',
+                                            marginRight: '1rem'
+                                        }}>edit</i>
+                                </Link>
                             </h4>
                             {
                                 showContactInfo ? (
