@@ -14,11 +14,11 @@ class Contact extends Component {
         this.setState({ showContactInfo: !this.state.showContactInfo })
     };
 
-    onDelete = (id, dispatch) => {
-        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-            .then(res => dispatch({ type: 'DELETE_CONTACT', payload: id }));
+    onDelete = async (id, dispatch) => {
+        dispatch({ type: 'DELETE_CONTACT', payload: id });
+        await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
 
-    }
+    };
 
     render() {
         const { contact: { id, name, email, phone } } = this.props;
