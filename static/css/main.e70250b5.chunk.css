@@ -1,0 +1,2 @@
+.nav-link{display:inline-flex}.nav-link i{vertical-align:middle;padding-right:5px}.closed{transform:rotate(-90deg)}.turn{transform:rotate(0deg);-webkit-animation:turn .3s ease-in-out;animation:turn .3s ease-in-out}@-webkit-keyframes turn{0%{transform:rotate(-90deg)}to{transform:rotate(0deg)}}@keyframes turn{0%{transform:rotate(-90deg)}to{transform:rotate(0deg)}}
+/*# sourceMappingURL=main.e70250b5.chunk.css.map */
